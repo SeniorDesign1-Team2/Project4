@@ -6,13 +6,14 @@
 % % find webcam 
 % cam_list = webcamlist;
 % 
-% cam_name = cam_list{2};
+% cam_name = cam_list{1};
 % 
 % cam = webcam(cam_name);
 % 
-% %%
+% 
 % preview(cam);
 % 
+%%
 % %% take picture of image before shapes
 % closePreview(cam);
 % data.orig = snapshot(cam);
@@ -49,32 +50,35 @@ display(selectedButton.Text);
 
 % w = waitforbuttonpress;
 
-rgb = imread("PutPutObjects.jpg");
-%rgb = imread("background.jpg");
+% rgb = imread("PutPutObjects.jpg");
+rgb = imread("background.png");
 
 [centersBright,radiiBright,metricBright] = imfindcircles(rgb,[10 35], ...
-    "ObjectPolarity","bright","Sensitivity",0.82,"EdgeThreshold",0.2);
-
+    "ObjectPolarity","bright","Sensitivity",0.91,"EdgeThreshold",0.15);
 imshow(rgb)
+
+h = viscircles(centersBright, radiiBright);
+
 hold on;
 
 bottomEdge = {[184, 457], [821, 462]};
-gantryMin = 55;
-gantryMax = 353;
-gantryPixelLimit = [55,355];
+gantryPixelLimit = [144, 483];
 gantryAngleLimit = [0 -2800];
-gantryDegressPerPixel = ((gantryAngleLimit(1) - gantryAngleLimit(2))) / (gantryPixelLimit(2) - gantryPixelLimit(1));
+% gantryDegressPerPixel = ((gantryAngleLimit(1) - gantryAngleLimit(2))) / (gantryPixelLimit(2) - gantryPixelLimit(1));
+gantryDegreesPerPixel = 8.69;
 
-
+removed = 0;
 for i=1:length(centersBright)
-    if (centersBright(i, 2) >= 140) && (centersBright(i, 2) <= 450)
-        STATS(i).Centroid(1) = centersBright(i,1);
-        STATS(i).Centroid(2) = centersBright(i,2);
-        STATS(i).Radii = radiiBright(i,1);
+    if (centersBright(i, 2) >= 90) && (centersBright(i, 2) <= 400)
+        STATS(i - removed).Centroid(1) = centersBright(i,1);
+        STATS(i - removed).Centroid(2) = centersBright(i,2);
+        STATS(i - removed).Radii = radiiBright(i,1);
+    else
+        removed = removed + 1;
     end
 end
 
-colorsNum = {[255,175,175], [175,175,255], [255,255,255], [204,204,204]};
+colorsNum = {[255,175,175], [175,175,255], [255,255,255], [255, 237, 233]};
 colorsName = ["Red", "Blue", "White", "Grey"];
 
 
@@ -88,7 +92,7 @@ for i = 1:items
         currDistance = round(sqrt((colorsNum{j}(1) - double(STATS(i).centroidColor(1)))^2 + (colorsNum{j}(2) - double(STATS(i).centroidColor(2)))^2 + (colorsNum{j}(3) - double(STATS(i).centroidColor(3)))^2));
         if currDistance < STATS(i).lowestEuclideanDistance
             STATS(i).colorIndex = j;
-            if (STATS(i).colorIndex == 3)
+            if (STATS(i).colorIndex == 3 && STATS(i).Centroid(1) <= 200)
                 referecePoint = STATS(i).Centroid;
             end
             STATS(i).lowestEuclideanDistance = currDistance;
@@ -129,9 +133,50 @@ for i = 1:items
     
 end
 
-function testing()
-    fprintf("Testing");
+for k = 1:items
+    if strcmp(STATS(k).Color, selectedButton.Text) == 1
+        club_angle = num2str(STATS(k).MotorAngle);
+        break
+    else
+        continue
+    end
 end
+
+for k = 1:items
+    if STATS(k).DistanceAway == 0
+        y_position = STATS(k).Centroid(2);
+        y_degrees = -1 * (y_position - 109) * gantryDegreesPerPixel;
+        if y_degrees > 0
+            y_degrees = 0;
+        end
+        if str2double(club_angle) > abs(10)
+            y_degrees = y_degrees - 200;
+        end
+
+        y_str = num2str(y_degrees);
+        set_param('MotorModel_Sp23_V21b/desiredPosition2', 'Value', y_str);
+        break
+    else
+        continue
+    end
+end
+
+%%
+pause('on')
+pause(3)
+
+set_param('MotorModel_Sp23_V21b/desiredPosition1', 'Value', club_angle);
+
+pause(3)
+
+set_param('MotorModel_Sp23_V21b/desiredPosition', 'Value', '-235');
+pause(3)
+
+set_param('MotorModel_Sp23_V21b/desiredPosition', 'Value', '0');
+pause(1)
+set_param('MotorModel_Sp23_V21b/desiredPosition1', 'Value', '0');
+pause(1)
+set_param('MotorModel_Sp23_V21b/desiredPosition2', 'Value', '0');
 
 
 
