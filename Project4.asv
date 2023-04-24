@@ -18,7 +18,6 @@ global selectedButton;
 app.Label.Text = selectedButton.Text;
 display(selectedButton.Text);
 
-%%
 rgb = imread("background.png");
 
 [centersBright,radiiBright,metricBright] = imfindcircles(rgb,[10 35], ...
@@ -29,18 +28,18 @@ imshow(rgb)
 hold on;
 
 %Update when camera moved
-topLeft = [41,76];
-topRight = [628, 90];
+bottomEdge = {[184, 457], [821, 462]};
+gantryPixelLimit = [144, 483];
+topLeft
+topRight = [632, 90];
 bottomLeft = [34, 396];
-bottomRight = [639, 402];
-
 gantryAngleLimit = [0 -2800];
 % gantryDegressPerPixel = ((gantryAngleLimit(1) - gantryAngleLimit(2))) / (gantryPixelLimit(2) - gantryPixelLimit(1));
 gantryDegreesPerPixel = 8.69;
 
 removed = 0;
 for i=1:length(centersBright)
-    if (centersBright(i, 2) >= topRight(2)) && (centersBright(i, 2) <= bottomLeft(2))
+    if (centersBright(i, 2) >= 90) && (centersBright(i, 2) <= 400)
         STATS(i - removed).Centroid(1) = centersBright(i,1);
         STATS(i - removed).Centroid(2) = centersBright(i,2);
         STATS(i - removed).Radii = radiiBright(i,1);
@@ -64,8 +63,6 @@ for i = 1:items
         currDistance = round(sqrt((colorsNum{j}(1) - double(STATS(i).centroidColor(1)))^2 + (colorsNum{j}(2) - double(STATS(i).centroidColor(2)))^2 + (colorsNum{j}(3) - double(STATS(i).centroidColor(3)))^2));
         if currDistance < STATS(i).lowestEuclideanDistance
             STATS(i).colorIndex = j;
-            %The reference points needs to have an x value less than 200
-            %and be white
             if (STATS(i).colorIndex == 3 && STATS(i).Centroid(1) <= 200)
                 referecePoint = STATS(i).Centroid;
             end
@@ -87,9 +84,9 @@ for i = 1:items
         STATS(i).Det = 0;
         STATS(i).MotorAngle = 0;
     else
-        %relativePoint1 = [(bottomRight(2) - referecePoint(1)), bottomRight(2)/bottomLeft(2)];
-        relativePoint1 = [(bottomRight(2) - referecePoint(1)), ((topRight(2) - topLeft(2)) / (topRight(1) - topLeft(1)))*(bottomRight(2) - referecePoint(1))];
+        relativePoint1 = [(bottomEdge{2}(1) - referecePoint(1)), bottomEdge{2}(2)/bottomEdge{1}(2)];
         relativePoint2 = [-(referecePoint(1) - STATS(i).Centroid(1)), (referecePoint(2) - STATS(i).Centroid(2))];
+
         quiver(referecePoint(1), referecePoint(2), relativePoint1(1), relativePoint1(2), 0, "LineWidth", 2, "Color", 'k');
         quiver(referecePoint(1), referecePoint(2), relativePoint2(1), -(relativePoint2(2)), 0, "LineWidth", 2, "Color", colorsNum{1,STATS(i).colorIndex}/255);
 
@@ -103,11 +100,7 @@ for i = 1:items
     end
     
 end
-hold off;
 
-%%
-
-%selectedButton.Text = "Blue";
 for k = 1:items
     if strcmp(STATS(k).Color, selectedButton.Text) == 1
         club_angle = num2str(STATS(k).MotorAngle);
@@ -130,7 +123,6 @@ for k = 1:items
 
         y_str = num2str(y_degrees);
         set_param('MotorModel_Sp23_V21b/desiredPosition2', 'Value', y_str);
-
         break
     else
         continue
