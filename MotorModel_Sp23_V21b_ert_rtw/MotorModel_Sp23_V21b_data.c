@@ -7,9 +7,9 @@
  *
  * Code generation for model "MotorModel_Sp23_V21b".
  *
- * Model version              : 21
+ * Model version              : 23
  * Simulink Coder version : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Sun Apr 23 18:14:43 2023
+ * C source code generated on : Tue Apr 25 17:04:51 2023
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -106,7 +106,7 @@ P_MotorModel_Sp23_V21b_T MotorModel_Sp23_V21b_P = {
   /* Mask Parameter: PIDController1_P
    * Referenced by: '<S100>/Proportional Gain'
    */
-  0.9,
+  0.8,
 
   /* Mask Parameter: PIDController2_P
    * Referenced by: '<S148>/Proportional Gain'

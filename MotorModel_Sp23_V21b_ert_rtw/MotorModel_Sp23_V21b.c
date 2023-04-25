@@ -7,9 +7,9 @@
  *
  * Code generation for model "MotorModel_Sp23_V21b".
  *
- * Model version              : 21
+ * Model version              : 23
  * Simulink Coder version : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Sun Apr 23 18:14:43 2023
+ * C source code generated on : Tue Apr 25 17:04:51 2023
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -630,7 +630,7 @@ void MotorModel_Sp23_V21b_step(void)
 
   /* MATLABSystem: '<S2>/Enable' */
   obj = &MotorModel_Sp23_V21b_DW.obj_lb;
-  obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(9UL);
+  obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(6UL);
 
   /* Gain: '<S2>/Gain' incorporates:
    *  Abs: '<S2>/Abs'
@@ -1029,10 +1029,10 @@ void MotorModel_Sp23_V21b_initialize(void)
   MotorModel_Sp23_V21b_M->Timing.stepSize0 = 0.001;
 
   /* External mode info */
-  MotorModel_Sp23_V21b_M->Sizes.checksums[0] = (4061549678U);
-  MotorModel_Sp23_V21b_M->Sizes.checksums[1] = (2997183778U);
-  MotorModel_Sp23_V21b_M->Sizes.checksums[2] = (3081800288U);
-  MotorModel_Sp23_V21b_M->Sizes.checksums[3] = (3329453594U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[0] = (794067058U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[1] = (3339076395U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[2] = (2459761153U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[3] = (2076132985U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -1167,7 +1167,7 @@ void MotorModel_Sp23_V21b_initialize(void)
     obj = &MotorModel_Sp23_V21b_DW.obj_lb;
     MotorModel_Sp23_V21b_DW.obj_lb.isSetupComplete = false;
     MotorModel_Sp23_V21b_DW.obj_lb.isInitialized = 1L;
-    obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_Open(9UL, 0.0, 0.0);
+    obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_Open(6UL, 0.0, 0.0);
     MotorModel_Sp23_V21b_DW.obj_lb.isSetupComplete = true;
 
     /* Start for MATLABSystem: '<S2>/Driver In1' */
@@ -1306,10 +1306,10 @@ void MotorModel_Sp23_V21b_terminate(void)
     MotorModel_Sp23_V21b_DW.obj_lb.matlabCodegenIsDeleted = true;
     if ((MotorModel_Sp23_V21b_DW.obj_lb.isInitialized == 1L) &&
         MotorModel_Sp23_V21b_DW.obj_lb.isSetupComplete) {
-      obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(9UL);
+      obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(6UL);
       MW_PWM_SetDutyCycle
         (MotorModel_Sp23_V21b_DW.obj_lb.PWMDriverObj.MW_PWM_HANDLE, 0.0);
-      obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(9UL);
+      obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(6UL);
       MW_PWM_Close(MotorModel_Sp23_V21b_DW.obj_lb.PWMDriverObj.MW_PWM_HANDLE);
     }
   }

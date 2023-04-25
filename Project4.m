@@ -7,7 +7,7 @@
 % 
 % 
 % preview(cam);
-% 
+
 
 %% testing other methods
 % clc;
@@ -72,6 +72,9 @@ for i = 1:items
             STATS(i).lowestEuclideanDistance = currDistance;
         end
         STATS(i).Color = colorsName{STATS(i).colorIndex};
+        if STATS(i).Color == "White" && STATS(i).Centroid(1) > 200
+            STATS(i).Color = "Grey";
+        end
     end
 
     plot(STATS(i).Centroid(1),STATS(i).Centroid(2),'kO','MarkerFaceColor', 'k', 'MarkerSize', 3);
@@ -87,8 +90,9 @@ for i = 1:items
         STATS(i).Det = 0;
         STATS(i).MotorAngle = 0;
     else
+        slope =  (((topRight(2) - topLeft(2)) / (topRight(1) - topLeft(1))) *  ((bottomRight(2) - bottomLeft(2)) / (bottomRight(1) - bottomLeft(1)))) / 2;
         %relativePoint1 = [(bottomRight(2) - referecePoint(1)), bottomRight(2)/bottomLeft(2)];
-        relativePoint1 = [(bottomRight(2) - referecePoint(1)), ((topRight(2) - topLeft(2)) / (topRight(1) - topLeft(1)))*(bottomRight(2) - referecePoint(1))];
+        relativePoint1 = [(bottomRight(2) - referecePoint(1)), slope *(bottomRight(2) - referecePoint(1))];
         relativePoint2 = [-(referecePoint(1) - STATS(i).Centroid(1)), (referecePoint(2) - STATS(i).Centroid(2))];
         quiver(referecePoint(1), referecePoint(2), relativePoint1(1), relativePoint1(2), 0, "LineWidth", 2, "Color", 'k');
         quiver(referecePoint(1), referecePoint(2), relativePoint2(1), -(relativePoint2(2)), 0, "LineWidth", 2, "Color", colorsNum{1,STATS(i).colorIndex}/255);
@@ -107,10 +111,11 @@ hold off;
 
 %%
 
-%selectedButton.Text = "Blue";
+% selectedButton.Text = "Grey";
 for k = 1:items
     if strcmp(STATS(k).Color, selectedButton.Text) == 1
-        club_angle = num2str(STATS(k).MotorAngle);
+        club_angle = (STATS(k).MotorAngle);
+        club_angle = club_angle + abs(club_angle)/10;
         break
     else
         continue
@@ -121,13 +126,18 @@ for k = 1:items
     if STATS(k).DistanceAway == 0
         y_position = STATS(k).Centroid(2);
         y_degrees = -1 * (y_position - 109) * gantryDegreesPerPixel;
+        if (club_angle) < -8
+            y_degrees = y_degrees + 300;
+        end
+        if (club_angle) > 8
+            y_degrees = y_degrees - 300;
+        end
         if y_degrees > 0
             y_degrees = 0;
         end
-        if str2double(club_angle) > abs(10)
-            y_degrees = y_degrees - 200;
+        if y_degrees < -2800
+            y_degrees = -2800;
         end
-
         y_str = num2str(y_degrees);
         set_param('MotorModel_Sp23_V21b/desiredPosition2', 'Value', y_str);
 
@@ -139,11 +149,12 @@ end
 
 %%
 pause('on')
+%degressPerSecond = 2800/3;
+% pause((club_angle*degressPerSecond + .5))
 pause(3)
 
-set_param('MotorModel_Sp23_V21b/desiredPosition1', 'Value', club_angle);
-
-pause(3)
+set_param('MotorModel_Sp23_V21b/desiredPosition1', 'Value', num2str(club_angle));
+pause(1)
 
 set_param('MotorModel_Sp23_V21b/desiredPosition', 'Value', '-235');
 pause(3)

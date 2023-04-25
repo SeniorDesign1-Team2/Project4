@@ -4,7 +4,7 @@
  * Code generation for Simulink model "MotorModel_Sp23_V21b".
  *
  * Simulink Coder version                : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Sun Apr 23 18:14:43 2023
+ * C source code generated on : Tue Apr 25 17:04:51 2023
  *
  * Note that the generated code is not dependent on this header file.
  * The file is used in cojuction with the automatic build procedure.
