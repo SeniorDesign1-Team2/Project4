@@ -17,6 +17,7 @@
 global selectedButton;
 app.Label.Text = selectedButton.Text;
 display(selectedButton.Text);
+%selectedButton.Text = "Grey";
 
 %%
 rgb = imread("background.png");
@@ -115,7 +116,7 @@ hold off;
 for k = 1:items
     if strcmp(STATS(k).Color, selectedButton.Text) == 1
         club_angle = (STATS(k).MotorAngle);
-        club_angle = club_angle + abs(club_angle)/10;
+        %club_angle = club_angle + abs(club_angle)/20;
         break
     else
         continue
@@ -127,10 +128,9 @@ for k = 1:items
         y_position = STATS(k).Centroid(2);
         y_degrees = -1 * (y_position - 109) * gantryDegreesPerPixel;
         if (club_angle) < -8
-            y_degrees = y_degrees + 300;
-        end
-        if (club_angle) > 8
-            y_degrees = y_degrees - 300;
+            y_degrees = y_degrees + (abs(club_angle)/30) * 500;
+        elseif (club_angle) > 8
+            y_degrees = y_degrees - (abs(club_angle)/30) * 500;
         end
         if y_degrees > 0
             y_degrees = 0;

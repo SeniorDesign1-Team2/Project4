@@ -1,5 +1,5 @@
 encoder_arduino.o: \
- c:\users\aidang~1\appdata\roaming\mathwo~1\matlab~1\collec~1\device~1\src\encoder_arduino.cpp \
+ c:\users\ahmot\appdata\roaming\mathwo~1\matlab~1\collec~1\device~1\src\encoder_arduino.cpp \
  C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/cores/arduino/Arduino.h \
  C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/cores/arduino/binary.h \
  C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/cores/arduino/WCharacter.h \
@@ -11,8 +11,8 @@ encoder_arduino.o: \
  C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/cores/arduino/USBAPI.h \
  C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/cores/arduino/Arduino.h \
  C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/variants/mega/pins_arduino.h \
- c:\users\aidang~1\appdata\roaming\mathwo~1\matlab~1\collec~1\device~1\src\encoder_arduino.h \
- C:/Users/AIDANG~1/DOCUME~1/CURREN~1/SENIOR~1/Project4/MotorModel_Sp23_V21b_ert_rtw/rtwtypes.h \
+ c:\users\ahmot\appdata\roaming\mathwo~1\matlab~1\collec~1\device~1\src\encoder_arduino.h \
+ C:/Users/ahmot/OneDrive/DOCUME~1/github/ECE495~1/Project4/MotorModel_Sp23_V21b_ert_rtw/rtwtypes.h \
  C:/PROGRA~1/MATLAB/R2021b/extern/include/tmwtypes.h
 
 C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/cores/arduino/Arduino.h:
@@ -37,8 +37,8 @@ C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/cores/ard
 
 C:/ProgramData/MATLAB/SupportPackages/R2021b/aIDE/hardware/arduino/avr/variants/mega/pins_arduino.h:
 
-c:\users\aidang~1\appdata\roaming\mathwo~1\matlab~1\collec~1\device~1\src\encoder_arduino.h:
+c:\users\ahmot\appdata\roaming\mathwo~1\matlab~1\collec~1\device~1\src\encoder_arduino.h:
 
-C:/Users/AIDANG~1/DOCUME~1/CURREN~1/SENIOR~1/Project4/MotorModel_Sp23_V21b_ert_rtw/rtwtypes.h:
+C:/Users/ahmot/OneDrive/DOCUME~1/github/ECE495~1/Project4/MotorModel_Sp23_V21b_ert_rtw/rtwtypes.h:
 
 C:/PROGRA~1/MATLAB/R2021b/extern/include/tmwtypes.h:

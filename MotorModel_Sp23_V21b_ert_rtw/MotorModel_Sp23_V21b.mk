@@ -2,7 +2,7 @@
 ## Makefile generated for component 'MotorModel_Sp23_V21b'. 
 ## 
 ## Makefile     : MotorModel_Sp23_V21b.mk
-## Generated on : Sun Apr 23 15:45:10 2023
+## Generated on : Tue Apr 25 17:26:57 2023
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/MotorModel_Sp23_V21b.elf
 ## Product type : executable
 ## 
@@ -21,7 +21,7 @@ MAKEFILE                  = MotorModel_Sp23_V21b.mk
 MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2021b
 MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2021b/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/AIDANG~1/DOCUME~1/CURREN~1/SENIOR~1/Project4
+START_DIR                 = C:/Users/ahmot/OneDrive/DOCUME~1/github/ECE495~1/Project4
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
@@ -61,7 +61,7 @@ PRODUCT_BIN      = $(RELATIVE_PATH_TO_ANCHOR)/$(PRODUCT_NAME).eep
 ARDUINO_TOOLS    = $(ARDUINO_ROOT)/hardware/tools/avr/bin
 ELF2EEP_OPTIONS  = -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
 DOWNLOAD_ARGS    =  >tmp.trash 2>&1 -P$(ARDUINO_PORT) -V -q -q -q -q -F -C$(ARDUINO_ROOT)/hardware/tools/avr/etc/avrdude.conf -p$(ARDUINO_MCU) -c$(ARDUINO_PROTOCOL) -b$(ARDUINO_BAUD) -D -Uflash:w:
-SLIB_PATH        = C:/Users/AIDANG~1/DOCUME~1/MATLAB/R2021b/ARDUIN~1/ARDUIN~1/FASTER~1
+SLIB_PATH        = C:/Users/ahmot/DOCUME~1/MATLAB/R2021b/ARDUIN~1/ARDUIN~1/FASTER~1
 
 TOOLCHAIN_SRCS = 
 TOOLCHAIN_INCS = 
@@ -194,7 +194,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/shared/svd/include -IC:/Users/AIDANG~1/AppData/Roaming/MATHWO~1/MATLAB~1/COLLEC~1/DEVICE~1/src -I$(START_DIR)/MotorModel_Sp23_V21b_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/common -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/default -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src -I$(MATLAB_ROOT)/rtw/c/ext_mode/common -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src -I$(ARDUINO_ROOT)/hardware/arduino/avr/cores/arduino -I$(ARDUINO_ROOT)/hardware/arduino/avr/variants/mega -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/SUPPOR~1/ARDUIN~1/SCHEDU~1/include -I$(ARDUINO_ROOT)/hardware/tools/avr/avr/include/avr -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/shared/EXTERN~1/include
+INCLUDES_BUILDINFO = -I$(START_DIR) -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/shared/svd/include -IC:/Users/ahmot/AppData/Roaming/MATHWO~1/MATLAB~1/COLLEC~1/DEVICE~1/src -I$(START_DIR)/MotorModel_Sp23_V21b_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/common -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/default -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src -I$(MATLAB_ROOT)/rtw/c/ext_mode/common -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src -I$(ARDUINO_ROOT)/hardware/arduino/avr/cores/arduino -I$(ARDUINO_ROOT)/hardware/arduino/avr/variants/mega -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/SUPPOR~1/ARDUIN~1/SCHEDU~1/include -I$(ARDUINO_ROOT)/hardware/tools/avr/avr/include/avr -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2021b/toolbox/target/shared/EXTERN~1/include
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -215,7 +215,7 @@ DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/MW_arduino_digitalio.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/MW_PWM.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/MW_PWMDriver.c C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp C:/Users/AIDANG~1/AppData/Roaming/MATHWO~1/MATLAB~1/COLLEC~1/DEVICE~1/SYS/../src/ENCODE~1.CPP xcp_ext_mode.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/MotorModel_Sp23_V21b.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/MotorModel_Sp23_V21b_data.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/rtGetInf.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/rtGetNaN.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_common.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_classic_trigger.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp_standard.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp_daq.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp_calibration.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src/xcp_fifo.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src/xcp_transport.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/default/xcp_mem_default.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/default/xcp_drv_rtiostream.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src/xcp_frame_serial.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_param_default_serial.c C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinotarget/registry/../scheduler/src/arduinoAVRScheduler.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinotarget/registry/../src/rtiostream_serial_daemon.cpp
+SRCS = C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/MW_arduino_digitalio.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/MW_PWM.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/MW_PWMDriver.c C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp C:/Users/ahmot/AppData/Roaming/MATHWO~1/MATLAB~1/COLLEC~1/DEVICE~1/SYS/../src/ENCODE~1.CPP xcp_ext_mode.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/MotorModel_Sp23_V21b.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/MotorModel_Sp23_V21b_data.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/rtGetInf.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/rtGetNaN.c $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_common.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_classic_trigger.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp_standard.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp_daq.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/protocol/src/xcp_calibration.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src/xcp_fifo.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src/xcp_transport.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/default/xcp_mem_default.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/platform/default/xcp_drv_rtiostream.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/slave/transport/src/xcp_frame_serial.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_param_default_serial.c C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinotarget/registry/../scheduler/src/arduinoAVRScheduler.cpp C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/target/supportpackages/arduinotarget/registry/../src/rtiostream_serial_daemon.cpp
 
 MAIN_SRC = $(START_DIR)/MotorModel_Sp23_V21b_ert_rtw/ert_main.c
 
@@ -580,7 +580,7 @@ ArduinoPinHandleMap.o : C:/ProgramData/MATLAB/SupportPackages/R2021b/toolbox/tar
 	$(CPP) $(CPPFLAGS) -o "$@" $(subst /,\,"$<")
 
 
-encoder_arduino.o : C:/Users/AIDANG~1/AppData/Roaming/MATHWO~1/MATLAB~1/COLLEC~1/DEVICE~1/SYS/../src/encoder_arduino.cpp
+encoder_arduino.o : C:/Users/ahmot/AppData/Roaming/MATHWO~1/MATLAB~1/COLLEC~1/DEVICE~1/SYS/../src/encoder_arduino.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" $(subst /,\,"$<")
 
 

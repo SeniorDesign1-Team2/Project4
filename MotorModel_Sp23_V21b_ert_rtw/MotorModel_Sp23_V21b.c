@@ -9,7 +9,7 @@
  *
  * Model version              : 23
  * Simulink Coder version : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Tue Apr 25 17:04:51 2023
+ * C source code generated on : Tue Apr 25 18:11:29 2023
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1029,10 +1029,10 @@ void MotorModel_Sp23_V21b_initialize(void)
   MotorModel_Sp23_V21b_M->Timing.stepSize0 = 0.001;
 
   /* External mode info */
-  MotorModel_Sp23_V21b_M->Sizes.checksums[0] = (794067058U);
-  MotorModel_Sp23_V21b_M->Sizes.checksums[1] = (3339076395U);
-  MotorModel_Sp23_V21b_M->Sizes.checksums[2] = (2459761153U);
-  MotorModel_Sp23_V21b_M->Sizes.checksums[3] = (2076132985U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[0] = (3465771321U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[1] = (475688391U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[2] = (251747225U);
+  MotorModel_Sp23_V21b_M->Sizes.checksums[3] = (1608497090U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
