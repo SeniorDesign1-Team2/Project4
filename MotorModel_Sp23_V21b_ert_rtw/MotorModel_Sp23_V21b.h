@@ -7,9 +7,9 @@
  *
  * Code generation for model "MotorModel_Sp23_V21b".
  *
- * Model version              : 23
+ * Model version              : 24
  * Simulink Coder version : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Tue Apr 25 18:11:29 2023
+ * C source code generated on : Wed Apr 26 18:58:26 2023
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -417,7 +417,7 @@ struct P_MotorModel_Sp23_V21b_T_ {
   real_T Gain_Gain_c;                  /* Expression: 255/3
                                         * Referenced by: '<S2>/Gain'
                                         */
-  real_T desiredPosition2_Value;       /* Expression: 0
+  real_T desiredPosition2_Value;       /* Expression: -574.2017
                                         * Referenced by: '<Root>/desiredPosition2'
                                         */
   real_T Saturation_UpperSat_m;        /* Expression: 5

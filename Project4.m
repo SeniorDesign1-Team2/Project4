@@ -22,6 +22,7 @@ display(selectedButton.Text);
 %%
 rgb = imread("background.png");
 
+
 [centersBright,radiiBright,metricBright] = imfindcircles(rgb,[10 35], ...
     "ObjectPolarity","bright","Sensitivity",0.91,"EdgeThreshold",0.15);
 imshow(rgb)
@@ -30,7 +31,7 @@ imshow(rgb)
 hold on;
 
 %Update when camera moved
-topLeft = [41,76];
+topLeft = [50,76];
 topRight = [628, 90];
 bottomLeft = [34, 396];
 bottomRight = [639, 402];
@@ -41,7 +42,7 @@ gantryDegreesPerPixel = 8.69;
 
 removed = 0;
 for i=1:length(centersBright)
-    if (centersBright(i, 2) >= topRight(2)) && (centersBright(i, 2) <= bottomLeft(2))
+    if (centersBright(i, 2) >= topRight(2)) && (centersBright(i, 2) <= bottomLeft(2) && centersBright(i, 1) >= topLeft(1))
         STATS(i - removed).Centroid(1) = centersBright(i,1);
         STATS(i - removed).Centroid(2) = centersBright(i,2);
         STATS(i - removed).Radii = radiiBright(i,1);
@@ -126,6 +127,7 @@ end
 for k = 1:items
     if STATS(k).DistanceAway == 0
         y_position = STATS(k).Centroid(2);
+        %Change
         y_degrees = -1 * (y_position - 109) * gantryDegreesPerPixel;
         if (club_angle) < -8
             y_degrees = y_degrees + (abs(club_angle)/30) * 500;
